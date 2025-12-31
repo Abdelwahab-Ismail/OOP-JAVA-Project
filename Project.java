@@ -1,21 +1,12 @@
-import java.util.ArrayList;
-
 public class Project {
-    int id;
-    String name;
-    ArrayList<Task> tasks = new ArrayList<Task>();
 
-    public Project(int id, String name) {
+    public int id;
+    public int userId;
+    public String name;
+
+    public Project(int id, int userId, String name) {
         this.id = id;
+        this.userId = userId;
         this.name = name;
-    }
-
-    public void addTask(Task t) {
-        tasks.add(t);
-        t.project = this;
-    }
-
-    public ArrayList<Task> getTasks() {
-        return tasks;
     }
 }
