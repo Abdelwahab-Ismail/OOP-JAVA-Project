@@ -22,6 +22,7 @@ public abstract class Task implements Completable {
         completed = true;
     }
 
+    
     public abstract boolean isUpcoming();
     public abstract String toCSV();
     public abstract void display();
