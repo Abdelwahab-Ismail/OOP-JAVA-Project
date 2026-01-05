@@ -8,6 +8,7 @@ public class TimedTask extends Task {
 
     public TimedTask(int id, int userId, String title,
     LocalDate deadline, Priority priority, String note) {
+
         super(id, userId, title);
         this.deadline = deadline;
         this.priority = (priority == null) ? Priority.LOW : priority;
@@ -23,8 +24,13 @@ public class TimedTask extends Task {
 
     @Override
     public String toCSV() {
-        return getId() + "," + getUserId() + "," + getTitle() + "," +
-        deadline + "," + priority + "," + note + "," + isCompleted();
+        return getId() + "," +
+        getUserId() + "," +
+        getTitle() + "," +
+        deadline + "," +
+        priority + "," +
+        note + "," +
+            isCompleted();
     }
 
     @Override
@@ -37,5 +43,8 @@ public class TimedTask extends Task {
             " | Note: " + note +
             " | Completed: " + isCompleted()
         );
+
+        // Notification for upcoming tasks
+        Notification.showReminder(deadline);
     }
 }
